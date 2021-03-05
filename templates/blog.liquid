@@ -1,0 +1,153 @@
+<section class="page-heading">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <h1 class="section_header">{{ blog.title }}</h1>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 blog-left-part"  data-infinite-scroll='{ "path": ".next a", "append": ".blog-entries-list", "history": false, "hideNav": ".pagination", "status": ".page-load-status" }'>
+      {% paginate blog.articles by 3 %}
+        {% for article in blog.articles %}
+          {% assign article_content = article.excerpt_or_content %}
+          <article class="article small--text-center blog-entries-list row">
+            <div class="col-md-12">
+              {% unless article.image == blank %}
+                <a class="article__featured-image-link" href="{{ article.url }}">
+                    <noscript>
+                      {{ article.image | img_url: '2048x2048' | img_tag: article.title | escape }}
+                    </noscript>
+                    <div class="article__featured-image-wrapper" style="padding-top:{{ 1 | divided_by: article.image.aspect_ratio | times: 100}}%;">
+                      {% assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+                      <img class="article__featured-image lazyload"
+                        src="{{ article.image | img_url: '300x300' }}"
+                        data-src="{{ img_url }}"
+                        data-widths="[360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                        data-aspectratio="{{ article.image.aspect_ratio }}"
+                        data-sizes="auto"
+                        alt="{{ article.title | escape }}">
+                    </div>
+                  </a>
+              {% endunless %}
+            </div>
+            <div class="col-md-12 ">
+              <h2 class="h3"><a class="article__heading-link" href="{{ article.url }}">{{ article.title }}</a></h2>
+            </div>
+            <div class="col-md-12">
+              <div class="rte rte--indented-images blog-content">
+                {{ article_content | strip_html | truncatewords: 50 }}
+              </div>
+            </div>
+            <div class="col-sm-8">
+                <a href="{{ article.url }}" class="text-link">READ MORE</a>
+                 {% comment %} 
+                 {% for tag in article.tags %}
+                  {% assign cat_tag_prefix = 'related-design-collection-' %}
+                  {% if tag contains cat_tag_prefix %}
+                  {% assign tag_title = tag | remove: cat_tag_prefix %}
+                  <a href="/collections/{{ tag_title }}" class="text-link">SEE RELATED SHIRTS</a>
+                  {% endif %}
+                {% endfor %}
+                {% endcomment %}
+                <a href="/collections/men" class="text-link">SEE RELATED SHIRTS</a>
+            </div>
+            <div class="col-sm-4 blog-social-media">
+                {% include 'social-sharing', share_title: article.title, share_permalink: article.url, share_image: article.image %}
+            </div>
+            <div class="col-xs-12">
+              <hr>
+            </div>
+          </article>
+        {% endfor %}
+
+        {% if paginate.pages > 1 %}
+          {% include 'pagination' %}
+        {% endif %}
+        <div class="page-load-status blog-infinite-scroll-status">
+          <div class="loader-ellips infinite-scroll-request">
+            <span class="loader-ellips__dot"></span>
+            <span class="loader-ellips__dot"></span>
+            <span class="loader-ellips__dot"></span>
+            <span class="loader-ellips__dot"></span>
+          </div>
+          <p class="infinite-scroll-last text-center">
+             <span id="back-to-top" class="glyphicon glyphicon-chevron-up"></span>
+          </p>
+          <p class="infinite-scroll-error text-center">No more pages to load</p>
+        </div>
+      {% endpaginate %}
+    </div>
+    <div class="col-md-4 m-t-30">
+      <div class="latest-blog-posts">
+        <h3 class="section_header">
+        Latest Blog Posts
+        </h3>
+        <ul class="no-bullet-list">
+          {% for article in blog.articles limit:4 %}
+            <li>
+              <a class="" href="{{ article.url }}">
+                <p class="no-margin">
+                  {{article.title}}
+                </p>
+                <span><time datetime="{{ article.published_at | date: '%Y-%m-%d' }}" class="date">{{ article.published_at | date: format: 'month_day_year' }}</time></span>
+              </a>
+            </li>
+          {% endfor %}  
+        </ul>
+        <hr>
+      </div>
+
+      <!-- TESTIMONIALS -->
+      <div class="latest-testimonials">
+        <h3 class="section_header">
+        Testimonials <img src="{{ 'left-quote-pink.png' | asset_url }}" class="left-quote">
+        </h3>
+        <ul class="no-bullet-list">
+          <li>
+            <p class="no-margin">
+              How can I know hundreds of pi digits and not the 10 digits of your phone number?
+            </p>
+            <span>— Elbert Ainstein</span>
+          </li>
+
+          <li>
+            <p class="no-margin">
+              Ever make mistakes in your life? Let’s make them birds. Yeah, they’re birds now.
+            </p>
+            <span>— Rob Boss</span>
+          </li>
+
+          <li>
+            <p class="no-margin">
+              Has anyone ever told you that you look like my daughter? It's a compliment, trust me.
+            </p>
+            <span>— Tonald Drump</span>
+          </li>
+          
+        </ul>
+        <hr>
+      </div>
+      <!-- SOCIAL MEDIA -->
+      <div class="bottom-social-media">
+        <h3 class="section_header">
+          Join the Backword Club
+        </h3> 
+        <p class="">
+          Receive weekly spoonerism scrambles and whacky discounts galore!
+        </p>
+        <div class="get-email-wrapper">
+          {% form 'customer' %}
+          {{ form.errors | default_errors }}
+            <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="Enter your E-mail" name="contact[email]" id="Email" class="email-input" autocorrect="off" autocapitalize="off">
+            <button type="submit" class="submit-email">Submit</button>
+          {% endform %}
+          
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>

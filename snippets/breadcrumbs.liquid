@@ -1,0 +1,54 @@
+	{% unless template contains 'product' %}
+  <a href="/" title="Home">Home</a>
+  {% endunless %}
+  {% if template contains 'page' %}
+    <!-- <img class="breadcrumbs-caret hidden-xs" src="{{ 'ic_arrow_next.png' | asset_url }}" /> -->
+    <span aria-hidden="true" class="hidden-md hidden-lg" >&rsaquo;</span>
+    <span class="hidden-xs"> / </span> 
+    <span>{{ page.title }}</span>
+  {% elsif template contains 'product' %}
+   <!--  {% if collection.url %}
+      <i class="fas fa-caret-right hidden-xs"></i>
+      <span aria-hidden="true" class="visible-xs m-r-8">&rsaquo;</span>
+      {{ collection.title | link_to: collection.url }}
+    {% endif %} -->
+    <!-- <i class="fas fa-caret-left hidden-xs"></i> -->
+    <img class="breadcrumbs-caret hidden-xs" src="{{ 'ic_arrow_prev.png' | asset_url }}" />
+    <span aria-hidden="true" class="visible-xs m-r-8">&rsaquo;</span>
+    <a href="/" title="Home">RETURN TO STORE</a>
+  {% elsif template contains 'collection' and collection.handle %}
+    <img class="breadcrumbs-caret hidden-xs" src="{{ 'ic_arrow_next.png' | asset_url }}" />
+    <span aria-hidden="true" class="visible-xs m-r-8">&rsaquo;</span>
+    {% if current_tags %}
+      {% capture url %}/collections/{{ collection.handle }}{% endcapture %}
+      {{ collection.title | link_to: url }}
+      <img class="breadcrumbs-caret hidden-xs" src="{{ 'ic_arrow_next.png' | asset_url }}" />
+      <span aria-hidden="true" class="visible-xs m-r-8">&rsaquo;</span>
+      <span>{{ current_tags | join: " + " }}</span>
+    {% else %}
+      <span>{{ collection.title }}</span>
+    {% endif %}
+  {% elsif template == 'blog' %}
+    <img class="breadcrumbs-caret hidden-xs" src="{{ 'ic_arrow_next.png' | asset_url }}" />
+    <span aria-hidden="true" class="visible-xs m-r-8">&rsaquo;</span>
+    {% if current_tags %}
+      {{ blog.title | link_to: blog.url }}
+      <i class="fas fa-caret-right hidden-xs"></i>
+      <span aria-hidden="true" class="visible-xs m-r-8">&rsaquo;</span>
+      <span>{{ current_tags | join: " + " }}</span>
+    {% else %}
+    <span>{{ blog.title }}</span>
+    {% endif %}
+  {% elsif template == 'article' %}
+    <img class="breadcrumbs-caret hidden-xs" src="{{ 'ic_arrow_next.png' | asset_url }}" />
+    <span aria-hidden="true" class="visible-xs m-r-8">&rsaquo;</span>
+    {{ blog.title | link_to: blog.url }}
+    <img class="breadcrumbs-caret hidden-xs" src="{{ 'ic_arrow_next.png' | asset_url }}" />
+    <span aria-hidden="true" class="visible-xs m-r-8">&rsaquo;</span>
+    <span>{{ article.title }}</span>
+  {% else %}
+   <i class="fas fa-caret-right hidden-xs"></i>
+   <span aria-hidden="true" class="visible-xs m-r-8">&rsaquo;</span>
+   <span>{{ page_title }}</span>
+  {% endif %}
+  

@@ -1,0 +1,172 @@
+
+
+<footer class="hidden-xs hidden-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <h3 class="footer-title">{{ section.settings.footer_newsletter_title }}</h3>  
+        <p>{{ section.settings.footer_newsletter_description }}</p>
+        {% form 'customer' %}
+        {{ form.errors | default_errors }}
+          <div class="inupt-wrapper">
+            <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="{{ 'general.newsletter_form.newsletter_placeholder' | t }}" name="contact[email]" id="Email" class="newsletter-input" autocorrect="off" autocapitalize="off">
+            <button type="submit" class="footer-submit-email">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        {% endform %}
+        <ul class="social-media-footer">
+          {% if settings.social_facebook_link != blank %}
+          <li>
+            <a href="{{ settings.social_facebook_link | escape }}">
+              <img src="{{  'facebook.png' | asset_url }}">
+            </a>
+          </li>
+          {% endif %} 
+          {% if settings.social_twitter_link != blank %}
+          <li>
+            <a href="{{ settings.social_twitter_link | escape }}">
+              <img src="{{  'twitter.png' | asset_url }}">
+            </a>
+          </li>
+          {% endif %} 
+          {% if settings.social_instagram_link != blank %}
+          <li>
+            <a href="{{ settings.social_instagram_link | escape }}">
+              <img src="{{  'instagram.png' | asset_url }}">
+            </a>
+          </li>
+          {% endif %} 
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+        <h3 class="footer-title">Contact Us</h3>  
+        <p>{{section.settings.footer_address}}</p>
+        <p>{{section.settings.footer_email}}</p>
+        <p>{{section.settings.footer_contact}}</p>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+        <h3 class="footer-title">{{section.settings.footer_title_link}}</h3> 
+        <ul class="footer-links">
+          {% for link in linklists[section.settings.footer_link_list].links %}
+          <li>
+            <a href="{{link.url}}">{{link.title}}</a>
+          </li>
+          {% endfor %}
+        </ul> 
+      </div>
+    </div>
+  </div>
+</footer>
+{% unless template contains 'product' %}
+<div class="copyright">
+  <p class="text-center text-white">Copyright © 2018. All Rights Reserved</p>
+</div>
+{% endunless %}
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".newsletter-input").on("keyup", function(){
+      var input = $(this).val();
+      if(input != ""){
+          $(".footer-submit-email").show();
+      }else{
+          $(".footer-submit-email").hide();
+      }
+    });
+  });
+</script>
+{% schema %}
+  {
+    "name": {
+      "pt-BR": "Rodapé",
+      "es": "Pie de página",
+      "de": "Fußzeile",
+      "it": "Footer",
+      "en": "Footer",
+      "ja": "フッター",
+      "fr": "Pied de page"
+    },
+    "settings": [
+      {
+        "type": "header",
+        "content": "Newsletter"
+      },
+      {
+        "type": "text",
+        "id": "footer_newsletter_title",
+        "label": "Newsletter Title",
+        "default": "Lorem Ipsum"
+      },
+      {
+        "type": "text",
+        "id": "footer_newsletter_description",
+        "label": "Newsletter Description",
+        "default": "Lorem ipsum dolor sit amet, cu eruditi consequat instructior eum. Erant causae ne"
+      },
+      {
+        "type": "header",
+        "content": "Footer Information"
+      },
+      {
+        "type": "text",
+        "id": "footer_address",
+        "label": "Address",
+        "default": "256 Roadstreet, City Name, Park Street, City, CT"
+      },
+      {
+        "type": "text",
+        "id": "footer_email",
+        "label": "Email",
+        "default": "hello@example.com"
+      },
+      {
+        "type": "text",
+        "id": "footer_contact",
+        "label": "Contact",
+        "default": "+123 456 9878"
+      },
+      {
+        "type": "text",
+        "id": "footer_title_link",
+        "label": {
+          "pt-BR": "Menu do rodapé",
+          "es": "Menú inferior",
+          "de": "Voettekst titel",
+          "it": "Title footer",
+          "en": "Footer Title",
+          "ja": "フッタータイトル",
+          "fr": "Titre du pied de page"
+        },
+        "default": "Footer Title"
+      },
+      {
+        "type": "link_list",
+        "id": "footer_link_list",
+        "label": {
+          "pt-BR": "Título do rodapé",
+          "es": "Título de pie de página",
+          "de": "Fußzeilenmenü",
+          "it": "Menu footer",
+          "en": "Footer menu",
+          "ja": "フッターメニュー",
+          "fr": "Menu pied de page"
+        },
+        "default": "footer"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_payment_icons",
+        "label": {
+          "pt-BR": "Mostrar ícones de pagamento",
+          "es": "Mostrar iconos de pago",
+          "de": "Zahlungssymbole anzeigen",
+          "it": "Mostra le icone di pagamento",
+          "en": "Show payment icons",
+          "ja": "支払いアイコンを表示する",
+          "fr": "Afficher les icônes de paiement"
+        },
+        "default": true
+      }
+    ]
+  }
+{% endschema %}

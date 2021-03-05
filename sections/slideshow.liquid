@@ -1,0 +1,479 @@
+{% comment %}
+  Set hero as enabled so JS is loaded at end of index.liquid.
+  Also set variables to control JS settings and appearance.
+
+  hero_full_height variable is also available in Header section.
+{% endcomment %}
+{% assign hero_full_height = true %}
+{% assign hero_parallax = false %}
+
+{% comment %}
+  Change the hero slideshow's dots color based on the slides' text color.
+{% endcomment %}
+<style>
+  .hero-slideshow.slick-slider .slick-dots li.slick-active button:before{
+    background: {{ section.settings.slide_text_color }};
+    border-color: transparent;
+  }
+  .hero-slideshow.slick-slider .slick-dots li button:before{
+    background: transparent;
+    border-color: {{ section.settings.slide_text_color }};
+  }
+</style>
+
+{% if hero_full_height %}
+  {% comment %}
+    Set home page header text color (store name, menu links)
+    to be the same as the slideshow text color (only if there
+    is a slideshow, otherwise it's the global heading text color)
+  {% endcomment %}
+  <style>
+    {% if section.blocks.size > 0 %}
+      .site-nav__link, .site-header__logo a {
+        color: #000;
+      }
+      .burger-icon {
+        background: #c5c5c5;
+      }
+    {% else %}
+      .site-nav__link, .site-header__logo a {
+        color: {{ settings.color_headings }};
+      }
+      .burger-icon {
+        background: {{ settings.color_headings }};
+      }
+    {% endif %}
+  </style>
+{% endif %}
+
+{% comment %}
+  If hero is first section on homepage, add class that sets
+  negative top-margin for alignment and force full height.
+{% endcomment %}
+<div data-section-id="{{ section.id }}" data-section-type="slideshow-section">
+  {% if section.blocks.size > 0 %}
+    <div class="hero-{{ section.id }} hero{% if hero_full_height %} hero--full-height{% endif %} hero--first" id="Hero"{% if hero_full_height %} data-fullscreen="true"{% endif %}{% if hero_parallax %}data-parallax="true"{% endif %} data-autoplay="{{ section.settings.hero_home_auto }}" data-autoplayspeed="{{ section.settings.home_hero_auto_speed }}">
+      {% for block in section.blocks %}
+
+          <div class="hero__slide slide--{{ block.id }}{% if block.settings.image == blank %} slide--placeholder{% endif %}" data-color="{{ section.settings.slide_text_color }}" style="color: {{ section.settings.slide_text_color }};" {{ block.shopify_attributes }}>
+            {% if hero_full_height %}
+              {% if block.settings.image == blank %}
+                <div class="placeholder-background">
+                  {% capture current %}{% cycle 1, 2 %}{% endcapture %}
+                  {{ 'lifestyle-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+                </div>
+              {% else %}
+                <noscript>
+                  {% if forloop.first == true %}
+                    <div class="hero__image-no-js"{% if block.settings.image %} style="background-image: url('{{ block.settings.image | img_url: '2048x' }}');"{% endif %}></div>
+                  {% endif %}
+                </noscript>
+                {% assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+                {% assign img_url_sm = block.settings.image_sm | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+                <img class="hero__image hero__image--{{ block.id }} lazyload fade-in{% unless forloop.first == true %} lazypreload{% endunless %} hidden-xs"
+                  {% if forloop.first == true %}
+                    src="{{ block.settings.image | img_url: '300x' }}"
+                  {% endif %}
+                  data-src="{{ img_url }}"
+                  data-widths="[540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048, 4472]"
+                  data-aspectratio="{{ block.settings.image.aspect_ratio }}"
+                  data-sizes="auto"
+                  data-parent-fit="cover"
+                  alt="{{ block.settings.image.alt | escape }}">
+                  <!-- Mobile  -->
+                  <img class="hero__image hero__image--{{ block.id }} lazyload fade-in{% unless forloop.first == true %} lazypreload{% endunless %} visible-xs"
+                  {% if forloop.first == true %}
+                    src="{{ block.settings.image_sm | img_url: '300x' }}"
+                  {% endif %}
+                  data-src="{{ img_url_sm }}"
+                  data-widths="[540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048, 4472]"
+                  data-aspectratio="{{ block.settings.image.aspect_ratio }}"
+                  data-sizes="auto"
+                  data-parent-fit="cover"
+                  alt="{{ block.settings.image.alt | escape }}">
+              {% endif %}
+            {% else %}
+              {% if block.settings.image != blank %}
+                <noscript>
+                  {% if forloop.first == true %}
+                    <div class="hero__image-no-js"{% if block.settings.image %} style="background-image: url('{{ block.settings.image | img_url: '2048x' }}');"{% endif %}></div>
+                  {% endif %}
+                </noscript>
+                <div class="hero__image">
+                  {% assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+                  {% assign img_url_sm = block.settings.image_sm | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+                  <img class="hero__image lazyload fade-in hidden-xs"
+                    src="{{ block.settings.image | img_url: '300x' }}"
+                    data-src="{{ img_url }}"
+                    data-widths="[540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
+                    data-aspectratio="{{ block.settings.image.aspect_ratio }}"
+                    data-sizes="auto"
+                    data-parent-fit="contain"
+                    alt="{{ block.settings.image.alt | escape }}">
+                    <!-- Mobile -->
+                    <img class="hero__image lazyload fade-in visible-xs"
+                    src="{{ block.settings.image_sm | img_url: '300x' }}"
+                    data-src="{{ img_url_sm }}"
+                    data-widths="[540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
+                    data-aspectratio="{{ block.settings.image.aspect_ratio }}"
+                    data-sizes="auto"
+                    data-parent-fit="contain"
+                    alt="{{ block.settings.image.alt | escape }}">
+                </div>
+              {% else %}
+                <div class="hero__image">
+                  {% capture current %}{% cycle 1, 2 %}{% endcapture %}
+                  {{ 'lifestyle-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+                </div>
+              {% endif %}
+            {% endif %}
+
+            {% comment %}
+              Apply a color overlay on a per-slide basis.
+            {% endcomment %}
+            <style>
+              .slide--{{ block.id }} .slideshow__overlay:before {
+                background-color: {{ block.settings.color_image_overlay }};
+                opacity: {{ block.settings.image_overlay_opacity | divided_by: 100.00 }};
+              }
+            </style>
+            <div class="hero__text-wrap slideshow__overlay">
+              <div class="hero__text-align">
+                <div class="hero__text-content">
+                  {% unless block.settings.slide_subheading == blank %}
+                    <p class="hero__subtitle">
+                      {{ block.settings.slide_subheading | escape }}
+                    </p>
+                  {% endunless %}
+                  {% unless block.settings.slide_heading == blank %}
+                    <h2 class="h1 hero__title">
+                      {{ block.settings.slide_heading | escape }}
+                    </h2>
+                  {% endunless %}
+                  {% unless block.settings.slide_cta == blank %}
+                    <a href="{{ block.settings.slide_link }}" style="color: {{ section.settings.slide_button_label_color }}; background-color: {{ section.settings.slide_button_background_color }}" class="btn hero__cta">
+                      {{ block.settings.slide_cta | escape }} <span class="icon icon-arrow-right" aria-hidden="true"></span>
+                    </a>
+                  {% endunless %}
+                </div>
+              </div>
+            </div>
+            
+          </div>
+          <a href="{{ block.settings.slide_link }}" title="Shop Now" class="banner-shop-now-btn">
+            <img src="{{ 'Shop-Now.png' | asset_url }}">
+          </a>
+      {% endfor %}
+    </div>
+  {% endif %}
+  
+</div>
+
+{% schema %}
+  {
+    "name": {
+      "pt-BR": "Apresentação de slides",
+      "es": "Diapositivas",
+      "de": "Slideshow",
+      "it": "Presentazione",
+      "en": "Slideshow",
+      "ja": "スライドショー",
+      "fr": "Diaporama"
+    },
+    "max_blocks": 6,
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "hero_home_auto",
+        "label": {
+          "pt-BR": "Rodar automaticamente entre slides",
+          "es": "Rotar automáticamente entre diapositivas",
+          "de": "Automatisch zwischen Folien rotieren",
+          "it": "Transizione automatica delle slide",
+          "en": "Auto rotate between slides",
+          "ja": "スライドの自動切り替え",
+          "fr": "Rotation automatique entre les diapositives"
+        },
+        "default": true
+      },
+      {
+        "type": "select",
+        "id": "home_hero_auto_speed",
+        "label": {
+          "pt-BR": "O slide muda a cada",
+          "es": "La diapositiva cambia cada",
+          "de": "Anzeige der nächsten Folie alle",
+          "it": "La slide cambia ogni",
+          "en": "Slide changes every",
+          "ja": "スライド変更の頻度",
+          "fr": "La diapositive change toutes les"
+        },
+        "options": [
+          {
+            "value": "5000",
+            "label": {
+              "pt-BR": "5 segundos",
+              "es": "5 segundos",
+              "de": "5 Sekunden",
+              "it": "5 secondi",
+              "en": "5 seconds",
+              "ja": "5秒",
+              "fr": "5 secondes"
+            }
+          },
+          {
+            "value": "7000",
+            "label": {
+              "pt-BR": "7 segundos",
+              "es": "7 segundos",
+              "de": "7 Sekunden",
+              "it": "7 secondi",
+              "en": "7 seconds",
+              "ja": "7秒",
+              "fr": "7 secondes"
+            }
+          },
+          {
+            "value": "10000",
+            "label": {
+              "pt-BR": "10 segundos",
+              "es": "10 segundos",
+              "de": "10 Sekunden",
+              "it": "10 secondi",
+              "en": "10 seconds",
+              "ja": "10秒",
+              "fr": "10 secondes"
+            }
+          }
+        ]
+      },
+      {
+        "type": "color",
+        "id": "slide_text_color",
+        "label": {
+          "pt-BR": "Texto",
+          "es": "texto",
+          "de": "Text",
+          "it": "Testo",
+          "en": "Text",
+          "ja": "テキスト",
+          "fr": "Texte"
+        },
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "slide_button_label_color",
+        "label": {
+          "pt-BR": "Etiqueta do botão",
+          "es": "Etiqueta de botón",
+          "de": "Schaltflächenbezeichnung",
+          "it": "Etichetta pulsante",
+          "en": "Button label",
+          "ja": "ボタンラベル",
+          "fr": "Texte du bouton"
+        },
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "slide_button_background_color",
+        "label": {
+          "pt-BR": "Botão",
+          "es": "Botón",
+          "de": "Schaltfläche",
+          "it": "Pulsante",
+          "en": "Button",
+          "ja": "ボタン",
+          "fr": "Bouton"
+        },
+        "default": "#ffffff"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "slide",
+        "name": {
+          "pt-BR": "Slide",
+          "es": "Diapositiva",
+          "de": "Folie",
+          "it": "Slide",
+          "en": "Slide",
+          "ja": "スライド",
+          "fr": "Diapositive"
+        },
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": {
+              "pt-BR": "Imagem",
+              "es": "Imagen",
+              "de": "Bild",
+              "it": "Immagine",
+              "en": "Image Large",
+              "ja": "画像",
+              "fr": "Image"
+            }
+          },
+          {
+            "type": "image_picker",
+            "id": "image_sm",
+            "label": {
+              "pt-BR": "Imagem Mobile",
+              "es": "Imagen Mobile",
+              "de": "Bild Mobile",
+              "it": "Immagine Mobile",
+              "en": "Image Mobile",
+              "ja": "画像 Mobile",
+              "fr": "Image Mobile"
+            }
+          },
+          {
+            "type": "header",
+            "content": {
+              "pt-BR": "Sobreposição",
+              "es": "Superposición",
+              "de": "Overlay",
+              "it": "Sovrapposizione",
+              "en": "Overlay",
+              "ja": "オーバーレイ",
+              "fr": "Superposition"
+            }
+          },
+          {
+            "type": "color",
+            "id": "color_image_overlay",
+            "label": {
+              "pt-BR": "Sobreposição",
+              "es": "Superposición",
+              "de": "Overlay",
+              "it": "Sovrapposizione",
+              "en": "Overlay",
+              "ja": "オーバーレイ",
+              "fr": "Superposition"
+            },
+            "default": "#3d4246"
+          },
+          {
+            "type": "range",
+            "id": "image_overlay_opacity",
+            "label": {
+              "pt-BR": "Opacidade",
+              "es": "Opacidad",
+              "de": "Opazität",
+              "it": "Opacità",
+              "en": "Opacity",
+              "ja": "不透過率",
+              "fr": "Opacité"
+            },
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": {
+              "pt-BR": "%",
+              "es": "%",
+              "de": "%",
+              "it": "%",
+              "en": "%",
+              "ja": "%",
+              "fr": "%"
+            },
+            "default": 25
+          },
+          {
+            "type": "header",
+            "content": {
+              "pt-BR": "Texto",
+              "es": "texto",
+              "de": "Text",
+              "it": "Testo",
+              "en": "Text",
+              "ja": "テキスト",
+              "fr": "Texte"
+            }
+          },
+          {
+            "type": "text",
+            "id": "slide_subheading",
+            "label": {
+              "pt-BR": "Texto do subtítulo",
+              "es": "Texto del subtítulo",
+              "de": "Untertiteltext",
+              "it": "Testo del sottotitolo",
+              "en": "Subheading text",
+              "ja": "小見出しテキスト",
+              "fr": "Texte du sous-titre"
+            },
+            "default": {
+              "pt-BR": "Uma introdução",
+              "es": "Frase introductoria",
+              "de": "Für den Einstieg:",
+              "it": "Come introduzione",
+              "en": "An introductory",
+              "ja": "紹介",
+              "fr": "Introduction"
+            }
+          },
+          {
+            "type": "text",
+            "id": "slide_heading",
+            "label": {
+              "pt-BR": "Texto do título",
+              "es": "Texto del encabezado",
+              "de": "Überschriftentext",
+              "it": "Testo del titolo",
+              "en": "Heading text",
+              "ja": "見出しテキスト",
+              "fr": "Texte du titre"
+            },
+            "default": {
+              "pt-BR": "Banner do Hero",
+              "es": "Banner destacado",
+              "de": "Hero-Banner",
+              "it": "Banner hero",
+              "en": "Hero Banner",
+              "ja": "ヒーローバナー",
+              "fr": "Bannière de premier plan"
+            }
+          },
+          {
+            "type": "text",
+            "id": "slide_cta",
+            "label": {
+              "pt-BR": "Texto do botão",
+              "es": "Botón de texto",
+              "de": "Schaltflächentext",
+              "it": "Testo pulsante",
+              "en": "Button text",
+              "ja": "ボタンテキスト",
+              "fr": "Texte du bouton"
+            },
+            "default": {
+              "pt-BR": "Compre agora",
+              "es": "Compra ya",
+              "de": "Jetzt shoppen",
+              "it": "Acquista ora",
+              "en": "Shop now",
+              "ja": "今すぐ購入",
+              "fr": "Acheter maintenant"
+            }
+          },
+          {
+            "type": "url",
+            "id": "slide_link",
+            "label": {
+              "pt-BR": "Link do slide",
+              "es": "Enlace de la diapositiva",
+              "de": "Folienlink",
+              "it": "Link slide",
+              "en": "Slide link",
+              "ja": "スライドリンク",
+              "fr": "Lien de diapositive"
+            }
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

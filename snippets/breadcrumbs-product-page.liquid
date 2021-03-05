@@ -1,0 +1,41 @@
+{% unless template == 'index' or template == 'cart' or template == 'list-collections' %}
+  <a href="/" title="Home">Home</a>
+  {% if template contains 'page' %}
+    <img class="breadcrumbs-caret " src="{{ 'ic_arrow_next.png' | asset_url }}" />
+    <span>{{ page.title }}</span>
+  {% elsif template contains 'product' %}
+    {% if collection.url %}
+      <img class="breadcrumbs-caret " src="{{ 'ic_arrow_next.png' | asset_url }}" />
+      {{ collection.title | link_to: collection.url }}
+    {% endif %}
+    <img class="breadcrumbs-caret " src="{{ 'ic_arrow_next.png' | asset_url }}" />
+    <span>{{ product.title }}</span>
+  {% elsif template contains 'collection' and collection.handle %}
+    <img class="breadcrumbs-caret " src="{{ 'ic_arrow_next.png' | asset_url }}" />
+    {% if current_tags %}
+      {% capture url %}/collections/{{ collection.handle }}{% endcapture %}
+      {{ collection.title | link_to: url }}
+      <img class="breadcrumbs-caret " src="{{ 'ic_arrow_next.png' | asset_url }}" />
+      <span>{{ current_tags | join: " + " }}</span>
+    {% else %}
+      <span>{{ collection.title }}</span>
+    {% endif %}
+  {% elsif template == 'blog' %}
+    <img class="breadcrumbs-caret " src="{{ 'ic_arrow_next.png' | asset_url }}" />
+    {% if current_tags %}
+      {{ blog.title | link_to: blog.url }}
+      <img class="breadcrumbs-caret " src="{{ 'ic_arrow_next.png' | asset_url }}" />
+      <span>{{ current_tags | join: " + " }}</span>
+    {% else %}
+    <span>{{ blog.title }}</span>
+    {% endif %}
+  {% elsif template == 'article' %}
+    <img class="breadcrumbs-caret " src="{{ 'ic_arrow_next.png' | asset_url }}" />
+    {{ blog.title | link_to: blog.url }}
+    <img class="breadcrumbs-caret " src="{{ 'ic_arrow_next.png' | asset_url }}" />
+    <span>{{ article.title }}</span>
+  {% else %}
+   <i class="fas fa-caret-right"></i>
+   <span>{{ page_title }}</span>
+  {% endif %}
+{% endunless %}

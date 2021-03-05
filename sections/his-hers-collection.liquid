@@ -1,0 +1,137 @@
+<style>
+  #his-her-collection{
+    background: url({{section.settings.collection_bg | img_url:'grande' }}) no-repeat center center;
+    background-size: cover;
+  }
+</style>
+<div class="full-width" id="his-her-collection">
+  <div class="container">
+    <div class="row">
+      <h1 class="title text-white text-center">{{section.settings.page_title}}</h1>
+        <div class="col-md-6 col-xs-6 text-center hidden-xs">
+          <div class="container-block">
+            {% for hisProduct in collections[section.settings.his_collections].products  limit:4  %}
+                {% assign featured_img = hisProduct.selected_or_first_available_variant %}
+                <div class="collection-container col-md-6 col-xs-12">
+                  <a href="{{hisProduct.url}}">
+                    <img class="collection-img-block" src="{{ hisProduct.featured_image | img_url:'grande' }}" width="250">
+                  </a>
+                </div>
+            {% endfor %}
+          </div>
+          <div class="col-xs-12 margin-top-20">
+            <a href="{{section.settings.his_collections_url}}">
+              <img  src="{{ 'Shop-Men.png' | asset_url }}" width="187">
+            </a>
+          </div>  
+        </div>
+
+        <div class="col-md-6 col-xs-6 text-center hidden-xs">
+          <div class="container-block">
+            {% for herProduct in collections[section.settings.her_collections].products limit:4 %}
+                {% assign featured_img = herProduct.selected_or_first_available_variant %}
+                <div class="collection-container col-md-6 col-xs-12">
+                  <a href="{{herProduct.url}}">
+                    <img class="collection-img-block" src="{{ herProduct.featured_image | img_url:'grande' }}" width="250">
+                  </a>
+                </div>
+            {% endfor %}
+          </div>
+          <div class="col-xs-12 margin-top-20">
+            <a href="{{section.settings.her_collections_url}}">
+              <img  src="{{ 'Shop-Women.png' | asset_url }}" width="187">
+            </a>
+          </div>
+        </div>
+
+        <!-- FOR MOBILE start -->
+        <div class="col-xs-12 visible-xs text-center">
+          <div class="container-block">
+            {% for hisProduct in collections[section.settings.his_collections].products  limit:2  %}
+                {% assign featured_img = hisProduct.selected_or_first_available_variant %}
+                <div class="collection-container col-xs-12">
+                  <a href="{{hisProduct.url}}">
+                    <img class="collection-img-block" src="{{ hisProduct.featured_image | img_url:'grande' }}" width="250">
+                  </a>
+                </div>
+            {% endfor %}
+            <div class="col-xs-12 margin-bot-25">
+              <a href="{{section.settings.his_collections_url}}">
+                <img  src="{{ 'Shop-Men.png' | asset_url }}" class="mobile-shop-button">
+              </a>
+            </div> 
+          </div>
+           
+          <div class="container-block">
+            {% for herProduct in collections[section.settings.her_collections].products limit:2 %}
+                {% assign featured_img = herProduct.selected_or_first_available_variant %}
+                <div class="collection-container col-xs-12">
+                  <a href="{{herProduct.url}}">
+                    <img class="collection-img-block" src="{{ herProduct.featured_image | img_url:'grande' }}" width="250">
+                  </a>
+                </div>
+            {% endfor %}
+            <div class="col-xs-12 margin-bot-25">
+              <a href="{{section.settings.her_collections_url}}">
+                <img  src="{{ 'Shop-Women.png' | asset_url }}" class="mobile-shop-button">
+              </a>
+            </div>
+          </div> 
+        </div>  
+        <!-- FOR MOBILE end -->
+
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "His/Hers Collections",
+    "settings": [
+      {
+        "type": "header",
+        "content": "His"
+      },
+      {
+        "type": "text",
+        "id":  "page_title",
+        "label": "Collection Title"
+      },
+      {
+        "type": "image_picker",
+        "id":  "collection_bg",
+        "label": "Background Image"
+      },
+      {
+        "type": "collection",
+        "id":  "his_collections",
+        "label": "His Collection"
+      },
+      {
+        "type": "url",
+        "id":  "his_collections_url",
+        "label": "Button Link"
+      },
+      {
+        "type": "header",
+        "content": "Her"
+      },
+      {
+        "type": "collection",
+        "id":  "her_collections",
+        "label": "Hers Collection"
+      },
+      {
+        "type": "url",
+        "id":  "her_collections_url",
+        "label": "Button Link"
+      }
+    ],
+    "presets": [
+      {
+        "name": "His/Hers Collections",
+        "category": "Collection"
+      }
+    ]
+  }
+{% endschema %}

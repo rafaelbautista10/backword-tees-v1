@@ -1,0 +1,626 @@
+{
+  "current": {
+    "color_body_bg": "#ffffff",
+    "color_headings": "#222323",
+    "color_body_text": "#222323",
+    "color_borders": "#1c1d1d",
+    "color_button_text": "#ffffff",
+    "color_primary": "#1c1d1d",
+    "color_secondary": "#d82a72",
+    "color_product_background": "#f7f7f7",
+    "color_sale_tag": "#990000",
+    "color_input": "#f6f6f6",
+    "color_newsletter": "#f6f6f6",
+    "color_drawer_background": "#1c1d1d",
+    "color_drawer_text": "#cccccc",
+    "color_drawer_border": "#343535",
+    "color_drawer_button": "#a26b25",
+    "color_drawer_button_text": "#ffffff",
+    "type_header_family": "roboto_n3",
+    "type_header_base_size": "30px",
+    "type_header_border_thickness": "1px",
+    "type_accent_family": "roboto_n7",
+    "type_accent_transform": false,
+    "type_accent_spacing": true,
+    "type_accent_subheadings": true,
+    "type_base_family": "roboto_n3",
+    "type_base_size": "16px",
+    "type_base_italize_titles": false,
+    "cart_type": "page",
+    "cart_notes_enable": true,
+    "share_image": "",
+    "social_facebook_link": "https:\/\/www.facebook.com\/backwordtees\/",
+    "social_twitter_link": "",
+    "social_pinterest_link": "",
+    "social_instagram_link": "https:\/\/www.instagram.com\/backwordtees\/",
+    "social_snapchat_link": "",
+    "social_google_plus_link": "",
+    "social_tumblr_link": "",
+    "social_youtube_link": "",
+    "social_vimeo_link": "",
+    "social_fancy_link": "",
+    "share_facebook": true,
+    "share_twitter": true,
+    "share_pinterest": true,
+    "favicon": "shopify:\/\/shop_images\/BackWordTees-Favicon.png",
+    "checkout_header_image": "",
+    "checkout_logo_image": "shopify:\/\/shop_images\/BackWordTees_Logo_Horizontal.png",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "medium",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#fff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#fafafa",
+    "checkout_heading_font": "Roboto",
+    "checkout_body_font": "Roboto",
+    "checkout_accent_color": "#a26b25",
+    "checkout_button_color": "#000000",
+    "checkout_error_color": "#e32c2b",
+    "checkout_banner_background_color": "#fff",
+    "checkout_call_to_action_color": "#a26b25",
+    "checkout_use_header_image": false,
+    "collection_products_grid": "collage",
+    "customer_layout": "customer_area",
+    "favicon_enable": false,
+    "product_vendor_enable": false,
+    "social_sharing_style": "clean",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "main_menu_link_list": "header",
+          "logo": "shopify:\/\/shop_images\/BackWordTees_Logo_Horizontal.png",
+          "logo_max_width": "180",
+          "search": "none",
+          "show_announcement": false,
+          "home_page_only": false,
+          "text": "Announce something here",
+          "color_bg": "#1c1d1d",
+          "color_text": "#ffffff"
+        }
+      },
+      "slideshow": {
+        "type": "slideshow",
+        "blocks": {
+          "slideshow-0": {
+            "type": "slide",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/bannerimage_5.jpg",
+              "image_sm": "shopify:\/\/shop_images\/bannerimage-mobile.jpg",
+              "color_image_overlay": "#3d4246",
+              "image_overlay_opacity": 0,
+              "slide_subheading": "",
+              "slide_heading": "THE NEW COLLECTION",
+              "slide_cta": "",
+              "slide_link": "shopify:\/\/collections\/his"
+            }
+          }
+        },
+        "block_order": [
+          "slideshow-0"
+        ],
+        "settings": {
+          "hero_home_auto": true,
+          "home_hero_auto_speed": "5000",
+          "slide_text_color": "#ffffff",
+          "slide_button_label_color": "#000000",
+          "slide_button_background_color": "#ffffff"
+        }
+      },
+      "drawer-menu": {
+        "type": "drawer-menu",
+        "settings": {
+          "drawer_top_link_list": "header",
+          "drawer_bottom_link_list": "main-menu",
+          "drawer_search_enable": false,
+          "footer_newsletter_title": "Join the Backword Club",
+          "footer_newsletter_description": "Receive weekly spoonerism scrambles and whacky discounts galore!"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "footer_newsletter_title": "Join the Backword Club",
+          "footer_newsletter_description": "Receive weekly spoonerism scrambles and whacky discounts galore!",
+          "footer_address": "Lipa City, Batangas",
+          "footer_email": "hello@backwordtees.com",
+          "footer_contact": "0945 503 8451",
+          "footer_title_link": "Information",
+          "footer_link_list": "footer",
+          "show_payment_icons": false
+        }
+      },
+      "1532438889926": {
+        "type": "featured-row",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/PurassicJark.png",
+          "layout": "left",
+          "title": "PURASSIC JARK",
+          "text": "<p>In a geological instant, the dinosaur species went extinct. Well, that&#x27;s what scientists led you to believe. Truth is, they were never really dead - they evolved into cute and fluffy creatures of doom. Inside Purassic Jark, scientists are hiding hundreds of genetically engineered kitties! There&#x27;s a reason why felids and felines think so highly of themeselves. Their in-built superiority complex dates back to millions of years! Cats have once roamed as the most fearsome, gargantuan reptiles of the land. Their meows were actually the most chilling roars in the animal kingdom. It&#x27;s time for the great Tyrannosaurus Purr to be known! This tee is a purrfect testament to the truth.<\/p>",
+          "button_label": ""
+        }
+      },
+      "1532440361474": {
+        "type": "featured-blog",
+        "settings": {
+          "title": "LATEST BLOG POSTS",
+          "blog": "damn-funny-blog",
+          "post_limit": 3,
+          "blog_show_date": true,
+          "blog_show_author": false,
+          "blog_show_image": true,
+          "blog_show_excerpt": false,
+          "show_view_all": false
+        }
+      },
+      "1532477859295": {
+        "type": "his-hers-collection",
+        "settings": {
+          "page_title": "OUR LATEST PRODUCTS",
+          "collection_bg": "shopify:\/\/shop_images\/Background1.jpg",
+          "his_collections": "men",
+          "his_collections_url": "shopify:\/\/collections\/his",
+          "her_collections": "women",
+          "her_collections_url": "shopify:\/\/collections\/hers"
+        }
+      },
+      "collection-template": {
+        "type": "collection-template",
+        "settings": {
+          "collection_products_grid": "grid",
+          "menu_link_list": "main-menu",
+          "collection_sort_enable": true,
+          "collection_tags_enable": false,
+          "product_vendor_enable": false
+        }
+      },
+      "list-collections-template": {
+        "type": "list-collections-template",
+        "blocks": {
+          "1532480747052": {
+            "type": "collection",
+            "settings": {
+              "collection": ""
+            }
+          }
+        },
+        "block_order": [
+          "1532480747052"
+        ],
+        "settings": {
+          "display_type": "all",
+          "sort": "alphabetical"
+        }
+      },
+      "product-template": {
+        "type": "product-template",
+        "settings": {
+          "zoom_enable": false,
+          "social_sharing_products": true,
+          "product_vendor_enable": false,
+          "image_layout": "thumbnails",
+          "quantity_enabled": true,
+          "product_selector": "select",
+          "enable_payment_button": false,
+          "add_to_cart_button_size": "large"
+        }
+      },
+      "article-template": {
+        "type": "article-template",
+        "settings": {
+          "social_sharing_blog": true
+        }
+      },
+      "1532481555265": {
+        "type": "testimonial",
+        "blocks": {
+          "1532481555265-0": {
+            "type": "quote",
+            "settings": {
+              "testimonial_img": "shopify:\/\/shop_images\/Einstein.png",
+              "testimonial": "<p><em>How can I know hundreds of pi digits and not the 10 digits of your phone number?<\/em><\/p>",
+              "name": "— Elbert Ainstein",
+              "site": ""
+            }
+          },
+          "1532482554937": {
+            "type": "quote",
+            "settings": {
+              "testimonial_img": "shopify:\/\/shop_images\/Bob-Ross.png",
+              "testimonial": "<p><em>Ever make mistakes in your life? Let’s make them birds. Yeah, they’re birds now.<\/em><\/p>",
+              "name": "— Rob Boss",
+              "site": "www.example.com"
+            }
+          },
+          "1532483075034": {
+            "type": "quote",
+            "settings": {
+              "testimonial_img": "shopify:\/\/shop_images\/Tonald-Drump.png",
+              "testimonial": "<p><em>Has anyone ever told you that you look like my daughter? It&#x27;s a compliment, trust me.<\/em><\/p>",
+              "name": "— Tonald Drump",
+              "site": "www.example.com"
+            }
+          }
+        },
+        "block_order": [
+          "1532481555265-0",
+          "1532482554937",
+          "1532483075034"
+        ],
+        "settings": {
+          "title": "",
+          "transparency": false
+        }
+      },
+      "1534401469111": {
+        "type": "featured-collections",
+        "blocks": {
+          "1534401469111-0": {
+            "type": "collection",
+            "settings": {
+              "collection": "brands-women"
+            }
+          },
+          "1534401469111-1": {
+            "type": "collection",
+            "settings": {
+              "collection": "movies-tv-men"
+            }
+          },
+          "1534401469111-2": {
+            "type": "collection",
+            "settings": {
+              "collection": "celebrities-men"
+            }
+          }
+        },
+        "block_order": [
+          "1534401469111-0",
+          "1534401469111-1",
+          "1534401469111-2"
+        ],
+        "settings": {
+          "title": ""
+        }
+      },
+      "about-us-custom": {
+        "type": "about-us-custom",
+        "settings": {
+          "about_us_image_1": "shopify:\/\/shop_images\/thumbnail-1.jpg",
+          "about_us_title_1": "It's Okay To Be Yourself.",
+          "about_us_content_1": "We belive that one of the most beautiful things in this world is diversity. We want our t-shirts to be a fantastic medium for people to express what they like and who they are. To encourage them that it's okay to be yourself, to be slightly different, or bee an awkward version of who you are perceived as.",
+          "about_us_image_2": "shopify:\/\/shop_images\/thumbnail-2.jpg",
+          "about_us_title_2": "Spoonerism is the soul of our company.",
+          "about_us_content_2": "They are verbal errors and slips of the toungue that we encounter daily and even commit ourselves. We embrace these mistakes and turn them into something positive. We are able to create freshly funny designs that highlight quirky plays on words. There's nothing like a good spoonerism to tickle your bunny fone err -- funny bone",
+          "about_us_image_3": "shopify:\/\/shop_images\/Layer_56.jpg",
+          "about_us_title_3": "We are as unique as our products.",
+          "about_us_content_3": "The people behind Backword Tees have a passion for going beyond ordinary. We break stereotypes and challege the status quo. \"No\" does not exist in our vocabulary. Whatever we do, we do the very best. Our culture thrives on Individualism but we also love to work together as a team.",
+          "about_us_collection_image_1": "shopify:\/\/shop_images\/mens-collection_6bbe7aa2-264b-48f0-b01f-99c3902cb6b0.png",
+          "about_us_collection_title_1": "Men's Collection",
+          "about_us_collection_description_1": "Latest collection for men",
+          "about_us_collection_button_text_1": "Shop Now",
+          "about_us_collection_button_link_1": "shopify:\/\/collections\/men",
+          "about_us_collection_image_2": "shopify:\/\/shop_images\/Group_3.png",
+          "about_us_collection_title_2": "Women's Collection",
+          "about_us_collection_description_2": "Latest collection for women",
+          "about_us_collection_button_text_2": "Shop Now",
+          "about_us_collection_button_link_2": "shopify:\/\/collections\/women"
+        }
+      }
+    },
+    "content_for_index": [
+      "1532438889926",
+      "1532477859295",
+      "1534401469111",
+      "1532440361474",
+      "1532481555265"
+    ]
+  },
+  "presets": {
+    "Classic": {
+      "cart_type": "drawer",
+      "cart_notes_enable": false,
+      "checkout_accent_color": "#a26b25",
+      "checkout_banner_background_color": "#fff",
+      "checkout_button_color": "#000000",
+      "checkout_call_to_action_color": "#a26b25",
+      "checkout_use_header_image": false,
+      "collection_products_grid": "collage",
+      "color_body_bg": "#ffffff",
+      "color_body_text": "#222323",
+      "color_borders": "#1c1d1d",
+      "color_button_text": "#ffffff",
+      "color_drawer_background": "#1c1d1d",
+      "color_drawer_border": "#343535",
+      "color_drawer_button": "#a26b25",
+      "color_drawer_button_text": "#ffffff",
+      "color_drawer_text": "#ffffff",
+      "color_headings": "#222323",
+      "color_input": "#f6f6f6",
+      "color_newsletter": "#f6f6f6",
+      "color_primary": "#1c1d1d",
+      "color_product_background": "#f7f7f7",
+      "color_sale_tag": "#990000",
+      "color_secondary": "#a26b25",
+      "customer_layout": "customer_area",
+      "favicon_enable": false,
+      "product_vendor_enable": false,
+      "share_facebook": true,
+      "share_pinterest": true,
+      "share_twitter": true,
+      "social_sharing_style": "clean",
+      "type_accent_family": "montserrat_n6",
+      "type_accent_spacing": true,
+      "type_accent_transform": true,
+      "type_accent_subheadings": true,
+      "type_base_family": "arapey_n4",
+      "type_base_italize_titles": true,
+      "type_base_size": "16px",
+      "type_header_base_size": "30px",
+      "type_header_border_thickness": "1px",
+      "type_header_family": "old_standard_tt_n4",
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+            "show_announcement": true,
+            "color_bg": "#1c1d1d",
+            "color_text": "#ffffff"
+          }
+        },
+        "slideshow": {
+          "type": "slideshow",
+          "blocks": {
+            "slideshow-0": {
+              "type": "slide",
+              "settings": {}
+            },
+            "slideshow-1": {
+              "type": "slide",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "slideshow-0",
+            "slideshow-1"
+          ],
+          "settings": {}
+        },
+        "featured-products": {
+          "type": "featured-products",
+          "settings": {
+            "home_featured_products": "frontpage"
+          }
+        },
+        "featured-content": {
+          "type": "featured-content",
+          "settings": {}
+        },
+        "featured-collections": {
+          "type": "featured-collections",
+          "blocks": {
+            "featured-collections-0": {
+              "type": "collection",
+              "settings": {}
+            },
+            "featured-collections-1": {
+              "type": "collection",
+              "settings": {}
+            },
+            "featured-collections-2": {
+              "type": "collection",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "featured-collections-0",
+            "featured-collections-1",
+            "featured-collections-2"
+          ],
+          "settings": {}
+        },
+        "newsletter": {
+          "type": "newsletter",
+          "settings": {}
+        }
+      },
+      "content_for_index": [
+        "featured-content",
+        "featured-collections",
+        "featured-products",
+        "newsletter"
+      ]
+    },
+    "Playful": {
+      "color_body_bg": "#ffffff",
+      "color_body_text": "#565656",
+      "color_borders": "#5dd2b4",
+      "color_button_text": "#003b34",
+      "color_primary": "#5dd2b4",
+      "color_secondary": "#058677",
+      "color_product_background": "#fff4f6",
+      "color_sale_tag": "#e80970",
+      "color_input": "#f6f6f6",
+      "color_newsletter": "#bde9f2",
+      "color_drawer_background": "#360f5f",
+      "color_drawer_text": "#ffffff",
+      "color_drawer_border": "#50297a",
+      "color_drawer_button": "#5dd2b4",
+      "color_drawer_button_text": "#360f5f",
+      "color_headings": "#321863",
+      "type_header_family": "quicksand_n7",
+      "type_header_base_size": "38px",
+      "type_header_border_thickness": "1px",
+      "type_accent_family": "roboto_n7",
+      "type_accent_transform": true,
+      "type_accent_spacing": true,
+      "type_accent_subheadings": false,
+      "type_base_family": "helvetica_n4",
+      "type_base_size": "17px",
+      "type_base_italize_titles": false,
+      "cart_type": "drawer",
+      "cart_notes_enable": true,
+      "social_facebook_link": "",
+      "social_twitter_link": "",
+      "social_pinterest_link": "",
+      "social_instagram_link": "",
+      "social_snapchat_link": "",
+      "social_google_plus_link": "",
+      "social_tumblr_link": "",
+      "social_youtube_link": "",
+      "social_vimeo_link": "",
+      "social_fancy_link": "",
+      "share_facebook": true,
+      "share_twitter": true,
+      "share_pinterest": true,
+      "favicon": "",
+      "checkout_header_image": "",
+      "checkout_logo_image": "",
+      "checkout_logo_position": "left",
+      "checkout_logo_size": "small",
+      "checkout_body_background_image": "",
+      "checkout_body_background_color": "#ffffff",
+      "checkout_input_background_color_mode": "white",
+      "checkout_sidebar_background_image": "",
+      "checkout_sidebar_background_color": "#fff4f6",
+      "checkout_heading_font": "Helvetica Neue",
+      "checkout_body_font": "Roboto",
+      "checkout_accent_color": "#0d8d7e",
+      "checkout_button_color": "#5dd2b4",
+      "checkout_error_color": "#f01130",
+      "checkout_banner_background_color": "#fff",
+      "checkout_call_to_action_color": "#a26b25",
+      "checkout_use_header_image": false,
+      "collection_products_grid": "collage",
+      "customer_layout": "customer_area",
+      "favicon_enable": false,
+      "product_vendor_enable": false,
+      "social_sharing_style": "clean",
+      "sections": {
+        "slideshow": {
+          "type": "slideshow",
+          "blocks": {
+            "1495823280244": {
+              "type": "slide",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "1495823280244"
+          ],
+          "settings": {
+            "hero_home_auto": false,
+            "home_hero_auto_speed": "5000"
+          }
+        },
+        "featured-products": {
+          "type": "featured-products",
+          "settings": {
+            "home_featured_products": "frontpage",
+            "collection_products_grid": "collage"
+          }
+        },
+        "newsletter": {
+          "type": "newsletter",
+          "settings": {}
+        },
+        "drawer-menu": {
+          "type": "drawer-menu",
+          "settings": {
+            "drawer_top_link_list": "main-menu",
+            "drawer_bottom_link_list": "footer",
+            "drawer_search_enable": false
+          }
+        },
+        "header": {
+          "type": "header",
+          "settings": {
+            "main_menu_link_list": "main-menu",
+            "logo_max_width": "260",
+            "search": "modal",
+            "show_announcement": false,
+            "color_bg": "#290c49",
+            "color_text": "#ffffff"
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "settings": {
+            "footer_link_list": "footer"
+          }
+        },
+        "collection-template": {
+          "type": "collection-template",
+          "settings": {
+            "collection_products_grid": "grid",
+            "collection_tags_enable": false,
+            "product_vendor_enable": false
+          }
+        },
+        "1494860348200": {
+          "type": "featured-row",
+          "settings": {
+            "layout": "right"
+          }
+        },
+        "1494894035034": {
+          "type": "featured-row",
+          "settings": {
+            "layout": "left"
+          }
+        },
+        "product-template": {
+          "type": "product-template",
+          "settings": {
+            "zoom_enable": false,
+            "social_sharing_products": true,
+            "product_vendor_enable": false
+          }
+        },
+        "1496078102297": {
+          "type": "advanced-content",
+          "blocks": {
+            "1496078102297-0": {
+              "type": "html",
+              "settings": {
+                "code": "<div style=\"text-align:center;\">\n<h1 class=\"h1\">Use HTML to format your text so it can be easily read.<\/h1>This text can be used to share information about your brand with customers.<\/div>",
+                "width": "100%",
+                "alignment": "top-middle"
+              }
+            }
+          },
+          "block_order": [
+            "1496078102297-0"
+          ],
+          "settings": {}
+        },
+        "1496177901425": {
+          "type": "advanced-content",
+          "blocks": {
+            "1496177901425-0": {
+              "type": "html",
+              "settings": {
+                "code": "<div style=\"width:745px;text-align: center; margin: 0 auto;\">This text can be used to share information about your brand with customers.<\/div>",
+                "width": "100%",
+                "alignment": "top-middle"
+              }
+            }
+          },
+          "block_order": [
+            "1496177901425-0"
+          ],
+          "settings": {}
+        }
+      },
+      "content_for_index": [
+        "1496177901425",
+        "featured-products",
+        "newsletter",
+        "1496078102297",
+        "1494860348200",
+        "1494894035034"
+      ]
+    }
+  }
+}

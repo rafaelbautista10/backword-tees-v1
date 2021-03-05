@@ -1,0 +1,117 @@
+<div data-section-id="{{ section.id }}" data-section-type="testimonial-section" data-template="{{ template.name }}">
+  {% if template != "blog" %}
+  <div class="full-width" id="testimonial">
+    <div class="container">
+      <div class="row">
+        <div class='col-md-offset-2 col-md-8'>
+          {% if section.blocks.size > 0 %}
+          <div class="carousel slide" data-ride="carousel" id="quote-carousel">
+            <ol class="carousel-indicators">
+              {% for block in section.blocks %}
+                <li data-target="#quote-carousel" data-slide-to="{{forloop.index0}}" class="{% if forloop.first == true %} active {% endif %}"></li>
+              {% endfor %}
+            </ol>
+            <div class="carousel-inner testi-list ">
+              {% for block in section.blocks %}
+              <div class="item {% if forloop.first == true %} active {% endif %} testimonial-block">
+                  <div class="row icon-vertical-align">
+                    <div class="col-sm-1">
+                      <img class="img-responsive icon_quote" src="{{ 'left-quote.png' | asset_url }}"/>
+                    </div>
+                    <div class="col-sm-2 text-center">
+                      <img class="img-responsive img-circle testimonial_img" src="{{block.settings.testimonial_img | img_url: 'large' }}">
+                    </div>
+                    <div class="col-sm-8 mobile-text-center">
+                      <p>{{block.settings.testimonial}}</p>
+                      <small>{{block.settings.name}}</small>
+                    </div>
+                    <div class="col-sm-1">
+                      <img class="img-responsive icon_quote" src="{{ 'right-quote.png' | asset_url }}"/>
+                    </div>
+                  </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>      
+          {% endif %}                    
+        </div>
+      </div>
+    </div>
+  </div>
+  {% else %}
+      {% for block in section.blocks %}
+        <p>{{block.settings.testimonial}}</p>
+         <small>{{block.settings.name}}</small>
+      {% endfor %}
+  {% endif %}
+</div>
+{% schema %}
+  {
+    "name": "Testimonials",
+    "class": "testimonial-section",
+    "max_blocks": 12,
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Testimonials"
+      },
+      {
+        "type": "checkbox",
+        "id": "transparency",
+        "label": "Enable transparency"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "quote",
+        "name": "Testimonial",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "testimonial_img",
+            "label": "Testimonial Image"
+          },
+          {
+            "type": "richtext",
+            "id": "testimonial",
+            "label": "Testimonial",
+            "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quam enim, fringilla ut purus ut, pretium ullamcorper sem. In sit amet vestibulum tellus. Aenean gravida dolor eget mi bibendum semper. </p>"
+          },
+          {
+            "type": "text",
+            "id": "name",
+            "label": "Customer name",
+            "info": "Optional",
+            "default": "John Doe"
+          },
+          {
+            "type": "text",
+            "id": "site",
+            "label": "Customer link",
+            "info": "Optional",
+            "default": "www.example.com"
+          },
+          {
+            "type": "url",
+            "id": "site_link",
+            "label": "Customer link URL",
+            "info": "Optional"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Testimonials",
+        "category": "Text",
+        "blocks": [
+          {
+            "type": "quote"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,208 @@
+<section class="page-heading hidden-xs">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12  text-center">
+        <h1 class="section_header">{{page.title}}</h1>
+        <div class="breadcrumbsr">
+			{% include 'breadcrumbs' %}
+		</div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="visible-xs">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 m-t-20">
+        {% include 'breadcrumbs' %}
+      </div>
+    </div>
+  </div>
+</section>
+<div class="container">
+	<div class="row about-content">
+			 
+			<div class="col-md-4 hidden-xs">
+				<h1 class="sec-title be-yourself">{{section.settings.about_us_title_1}}</h1>
+				<p>{{section.settings.about_us_content_1}}</p>
+				<img class="lazyload m-t-20" src="{{ section.settings.about_us_image_1 | img_url: 'grande' }}" />
+			</div>
+			<div class="col-md-4 hidden-xs">
+				<img class="lazyload m-b-30" src="{{ section.settings.about_us_image_2 | img_url: 'grande' }}" />
+				<h1 class="sec-title">{{section.settings.about_us_title_2}}</h1>
+				<p>{{section.settings.about_us_content_2}}</p>
+			</div>
+			<div class="col-md-4 hidden-xs">
+				<img class="lazyload m-b-30" src="{{ section.settings.about_us_image_3 | img_url: 'grande' }}" />
+				<h1 class="sec-title">{{section.settings.about_us_title_3}}</h1>
+				<p>{{section.settings.about_us_content_3}}</p>
+			</div>
+<!------- MOBILE START---------->
+      <div class="col-md-4 visible-xs no-padding">
+        <div class="pad-15">
+          <h1 class="sec-title be-yourself">{{section.settings.about_us_title_1}}</h1>
+          <p>{{section.settings.about_us_content_1}}</p>
+        </div>
+        <img class="lazyload" src="{{ section.settings.about_us_image_2 | img_url: 'grande' }}" />
+        <img class="lazyload m-b-30" src="{{ section.settings.about_us_image_3 | img_url: 'grande' }}" />
+      </div>
+      <div class="col-md-4 visible-xs no-padding">
+        <div class="pad-15">
+          <h1 class="sec-title">{{section.settings.about_us_title_2}}</h1>
+          <p>{{section.settings.about_us_content_2}}</p>
+        </div>
+        <img class="lazyload m-t-20 m-b-30" style="width: 100%" src="{{ section.settings.about_us_image_1 | img_url: 'grande' }}" />
+        <div class="pad-15">
+          <h1 class="sec-title">{{section.settings.about_us_title_3}}</h1>
+          <p>{{section.settings.about_us_content_3}}</p>
+        </div>
+      </div>
+<!------- MOBILE END---------->
+		<div class="col-xs-12" style="margin-bottom: 40px;"></div>
+		<div class="col-md-6">
+			<div class="mens-collection" style="background: url({{ section.settings.about_us_collection_image_1 | img_url:'grande' }}) no-repeat center center; background-size: 100%;">
+			    <div class="pull-right mens">
+			    	<h1>{{section.settings.about_us_collection_title_1}}</h1>
+						<p class="m-b-25">{{section.settings.about_us_collection_description_1}}</p>
+						<a class="shop-now-btn" href="{{section.settings.about_us_collection_button_link_1}}">
+							{{section.settings.about_us_collection_button_text_1}}
+						</a>
+			    </div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="womens-collection" style="background: url({{ section.settings.about_us_collection_image_2 | img_url:'grande' }}) no-repeat center center; background-size: 100%;">
+    			<div class="pull-right womens">
+					<h1>{{section.settings.about_us_collection_title_2}}</h1>
+					<p class="m-b-25">{{section.settings.about_us_collection_description_2}}</p>
+					<a class="shop-now-btn" href="{{section.settings.about_us_collection_button_link_2}}">
+						{{section.settings.about_us_collection_button_text_2}}
+					</a>
+				</div>
+			</div>
+		</div>
+		 
+	</div>
+</div>
+{% schema %}
+  {
+    "name": "About Us",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Block 1"
+      },
+      {
+        "type": "image_picker",
+        "id":  "about_us_image_1",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id":  "about_us_title_1",
+        "label": "Content Title"
+      },
+      {
+        "type": "textarea",
+        "id":  "about_us_content_1",
+        "label": "Content Description"
+      },
+      {
+        "type": "header",
+        "content": "Block 2"
+      },
+      {
+        "type": "image_picker",
+        "id":  "about_us_image_2",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id":  "about_us_title_2",
+        "label": "Content Title"
+      },
+      {
+        "type": "textarea",
+        "id":  "about_us_content_2",
+        "label": "Content Description"
+      },
+      {
+        "type": "header",
+        "content": "Block 3"
+      },
+      {
+        "type": "image_picker",
+        "id":  "about_us_image_3",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id":  "about_us_title_3",
+        "label": "Content Title"
+      },
+      {
+        "type": "textarea",
+        "id":  "about_us_content_3",
+        "label": "Content Description"
+      },
+      {
+        "type": "header",
+        "content": "Collection Block 1"
+      },
+      {
+        "type": "image_picker",
+        "id":  "about_us_collection_image_1",
+        "label": "Background Image"
+      },
+      {
+        "type": "text",
+        "id":  "about_us_collection_title_1",
+        "label": "Collection Title"
+      },
+      {
+        "type": "textarea",
+        "id":  "about_us_collection_description_1",
+        "label": "Collection Description"
+      },
+      {
+        "type": "text",
+        "id":  "about_us_collection_button_text_1",
+        "label": "Collection Button Text"
+      },
+      {
+        "type": "url",
+        "id":  "about_us_collection_button_link_1",
+        "label": "Collection Button Link"
+      },
+      {
+        "type": "header",
+        "content": "Collection Block 2"
+      },
+      {
+        "type": "image_picker",
+        "id":  "about_us_collection_image_2",
+        "label": "Background Image"
+      },
+      {
+        "type": "text",
+        "id":  "about_us_collection_title_2",
+        "label": "Collection Title"
+      },
+      {
+        "type": "textarea",
+        "id":  "about_us_collection_description_2",
+        "label": "Collection Description"
+      },
+      {
+        "type": "text",
+        "id":  "about_us_collection_button_text_2",
+        "label": "Collection Button Text"
+      },
+      {
+        "type": "url",
+        "id":  "about_us_collection_button_link_2",
+        "label": "Collection Button Link"
+      }
+    ]
+  }
+{% endschema %}

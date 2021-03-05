@@ -1,0 +1,136 @@
+<section id="feature-collection-home">
+  <div class="container" >
+    <div class="row">
+      {% for block in section.blocks limit: collection_limit %}
+          {% assign collection = collections[block.settings.collection] %}
+          {% assign collection_index = collection_index | plus: 1 %}
+          {% assign collection_handle = collection.handle %}
+          {% if collection == blank %}
+            {% assign collection_title = 'home_page.onboarding.collection_title' | t %}
+          {% else %}
+            {% assign collection_title = collections[collection_handle].title | escape %}
+          {% endif %}
+
+          {% if collection.image %}
+            {%- assign collection_image = collection.image -%}
+          {% elsif collection.products.first and collection.products.first.images != empty %}
+            {%- assign collection_image = collection.products.first.featured_image -%}
+          {% else %}
+            {%- assign collection_image = blank -%}
+          {% endif %}
+          <div class="col-md-4">
+            <a href="{{ collections[collection_handle].url }}">
+              <div class="collection-container {{collection.title | downcase | handleize}}">
+                <img src="{{ collection_image | img_url: 'grande' }}" alt="Avatar" class="image">
+                <div class="overlay">
+                  <div class="text">{{collection.title}}</div>
+                  <div class="show-overlay-{{collection.title | downcase | handleize}}">
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% schema %}
+  {
+    "name": {
+      "pt-BR": "Lista de coleções",
+      "es": "Lista de colecciones",
+      "de": "Kategorieliste",
+      "it": "Elenco delle collezioni",
+      "en": "Collection list",
+      "ja": "コレクションリスト",
+      "fr": "Liste des collections"
+    },
+    "max_blocks": 3,
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": {
+          "pt-BR": "Título",
+          "es": "Título",
+          "de": "Überschrift",
+          "it": "Heading",
+          "en": "Heading",
+          "ja": "見出し",
+          "fr": "Titre"
+        },
+        "default": {
+          "pt-BR": "Lista de coleções",
+          "es": "Lista de colecciones",
+          "de": "Kategorieliste",
+          "it": "Elenco delle collezioni",
+          "en": "Collection list",
+          "ja": "コレクションリスト",
+          "fr": "Liste des collections"
+        }
+      }
+    ],
+    "presets": [
+      {
+        "name": {
+          "pt-BR": "Lista de coleções",
+          "es": "Lista de colecciones",
+          "de": "Kategorieliste",
+          "it": "Elenco delle collezioni",
+          "en": "Collection list",
+          "ja": "コレクションリスト",
+          "fr": "Liste des collections"
+        },
+        "category": {
+          "es": "Colección",
+          "de": "Kategorie",
+          "it": "Collezione",
+          "en": "Collection",
+          "fr": "Collection",
+          "pt-BR": "Coleção",
+          "ja": "コレクション"
+        },
+        "blocks": [
+          {
+            "type": "collection"
+          },
+          {
+            "type": "collection"
+          },
+          {
+            "type": "collection"
+          }
+        ]
+      }
+    ],
+    "blocks": [
+      {
+        "type": "collection",
+        "name": {
+          "pt-BR": "Coleção",
+          "es": "colección",
+          "de": "Kategorie",
+          "it": "collezione",
+          "en": "Collection",
+          "ja": "コレクション",
+          "fr": "Collection"
+        },
+        "settings": [
+          {
+            "id": "collection",
+            "type": "collection",
+            "label": {
+              "pt-BR": "Coleção",
+              "es": "colección",
+              "de": "Kategorie",
+              "it": "collezione",
+              "en": "Collection",
+              "ja": "コレクション",
+              "fr": "Collection"
+            }
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
